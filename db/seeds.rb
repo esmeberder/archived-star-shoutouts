@@ -1,7 +1,7 @@
 require 'faker'
 
 5.times do
-  User.create!(
+  s = User.create!(
     name: Faker::Superhero.name,
     bio: Faker::TvShows::SouthPark.quote,
     category: "Star"
@@ -11,9 +11,14 @@ require 'faker'
     bio: "customer bio",
     category: "Customer"
   )
-  Service.create!(
-    title: "service title",
-    description: "service description",
-    price: rand(5..100)
-  )
+  2.times do
+    Service.create!(
+      title: "service title",
+      description: "service description",
+      price: rand(5..100),
+      user_id: s.id
+    )
+  end
 end
+
+puts "created #{User.count} users"

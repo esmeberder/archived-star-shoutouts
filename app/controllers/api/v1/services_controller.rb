@@ -2,7 +2,7 @@ class Api::V1::ServicesController < Api::V1::BaseController
 
   def index
     @services = Service.all
-    # render json: @stories #Just for testing
+    render json: @services #Just for testing
   end
 
   def new
