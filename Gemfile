@@ -3,6 +3,7 @@ ruby '2.6.3'
 
 # added for star-shoutouts
 gem 'devise'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
