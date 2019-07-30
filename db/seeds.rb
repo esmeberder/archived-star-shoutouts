@@ -1,15 +1,18 @@
 require 'faker'
 
+Service.destroy_all if Rails.env.development?
+User.destroy_all if Rails.env.development?
+
 5.times do
   s = User.create!(
     name: Faker::Superhero.name,
     bio: Faker::TvShows::SouthPark.quote,
-    category: "Star"
+    star: true
   )
   User.create!(
     name: Faker::Name.unique.name,
     bio: "customer bio",
-    category: "Customer"
+    star: false
   )
   2.times do
     Service.create!(
